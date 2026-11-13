@@ -331,7 +331,9 @@ if (is_lite_system && current_os == "ohos") {
         file_name = "asm-riscv"
       } else if ("${musl_arch}" == "loongarch64") {
         file_name = "asm-loongarch"
-      } else {  # aarch64 and x86_64 use same file
+      } else if ("${musl_arch}" == "x86_64") {
+        file_name = "asm-x86"
+      } else {  # aarch64
         file_name = "asm-arm64"
       }
       sources = [ "${musl_uapi_dir}/${file_name}/asm" ]

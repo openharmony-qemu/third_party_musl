@@ -139,7 +139,7 @@ def main():
         uapi_from = "local"
         final_uapi_dir = args.musl_uapi_dir
 
-    exclude_pattern = "^asm$|^scsi$" if uapi_from == "make" else "^asm-arm$|^asm-arm64$|^scsi$"
+    exclude_pattern = "^asm$|^scsi$" if uapi_from == "make" else "^asm-(arm|arm64|x86|riscv|loongarch)$|^scsi$"
 
     # List UAPI
     uapi_files = list_uapi_files(final_uapi_dir, exclude_pattern)
